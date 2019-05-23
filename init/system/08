@@ -1,0 +1,2 @@
+~/.ssh/authorized_keys
+Il est configurable dans le fichier '/etc/ssh/sshd_config' sous le mot-clef #AuthorizedKeysFile.
