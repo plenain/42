@@ -6,7 +6,7 @@
 /*   By: plenain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 23:16:12 by plenain           #+#    #+#             */
-/*   Updated: 2019/08/11 23:16:15 by plenain          ###   ########.fr       */
+/*   Updated: 2019/09/09 17:28:11 by plenain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	tokenizer_redirection(char **s, int ret)
 	return (ret);
 }
 
-static int	tokenizer_aggregators(char **s, int ret)
+static int	tokenizer_aggregators(char **s, int ret, char *end)
 {
 	if (*(*s + 1) == '>')
 	{
@@ -43,6 +43,11 @@ static int	tokenizer_aggregators(char **s, int ret)
 			*s += 2;
 		}
 	}
+	else
+		while (*s < end && !ft_strchr(WHITESPACES, **s) &&
+			!ft_strchr(TOKENS, **s))
+			(*s)++;
+		return('a');
 	return (ret);
 }
 
@@ -71,7 +76,7 @@ int			tokenizer(
 	else if (*s && ft_is_in("><", *s))
 		ret = tokenizer_redirection(&s, ret);
 	else if (*s && ft_is_in("12", *s))
-		ret = tokenizer_aggregators(&s, ret);
+		ret = tokenizer_aggregators(&s, ret, end);
 	else if (*s)
 		ret = tokenizer_string(&s, end);
 	if (new_cmd_end)

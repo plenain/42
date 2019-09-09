@@ -6,7 +6,7 @@
 /*   By: plenain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 23:16:01 by plenain           #+#    #+#             */
-/*   Updated: 2019/08/11 23:16:03 by plenain          ###   ########.fr       */
+/*   Updated: 2019/09/09 17:28:26 by plenain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ t_cmd		*shell_parser_exec(char **p_input, char *end, int *res)
 	{
 		if ((tok = tokenizer(p_input, end, &new_cmd, &new_cmd_end)) == 0)
 			break ;
-		if (tok != 'a' && (*res = 0))
+		if ((tok != 'a') && (*res = 0))
 			return (NULL);
 		ft_lstadd_back(&cmd->argv, ft_lstnew(
-			ft_strndup(new_cmd, new_cmd_end - new_cmd),
-			new_cmd_end - new_cmd + 1));
+					ft_strndup(new_cmd, new_cmd_end - new_cmd),
+					new_cmd_end - new_cmd + 1));
 		ret = shell_parser_redirection(ret, p_input, end);
 	}
 	return (ret);
@@ -74,12 +74,12 @@ t_cmd		*shell_parser_pipe(char **p_input, char *end, int *res)
 	char	*new_cmd_end;
 
 	if (shell_parser_helper_strings_scan_pipes(
-		p_input, end, &new_cmd, &new_cmd_end))
+				p_input, end, &new_cmd, &new_cmd_end))
 	{
 		cmd = shell_parser_exec(&new_cmd, new_cmd_end, res);
 		(*p_input)++;
 		cmd = shell_parser_new_pipe_cmd(
-			cmd, shell_parser_pipe(p_input, end, res));
+				cmd, shell_parser_pipe(p_input, end, res));
 	}
 	else
 		cmd = shell_parser_exec(&new_cmd, new_cmd_end, res);
