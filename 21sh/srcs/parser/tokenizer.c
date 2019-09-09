@@ -6,7 +6,7 @@
 /*   By: plenain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 23:16:12 by plenain           #+#    #+#             */
-/*   Updated: 2019/09/09 17:28:11 by plenain          ###   ########.fr       */
+/*   Updated: 2019/09/09 17:35:22 by plenain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ static int	tokenizer_aggregators(char **s, int ret, char *end)
 	}
 	else
 		while (*s < end && !ft_strchr(WHITESPACES, **s) &&
-			!ft_strchr(TOKENS, **s))
+				!ft_strchr(TOKENS, **s))
 			(*s)++;
-		return('a');
+	return ('a');
 	return (ret);
 }
 
 static int	tokenizer_string(char **s, char *end)
 {
 	while (*s < end && !ft_strchr(WHITESPACES, **s) &&
-		!ft_strchr(TOKENS, **s))
+			!ft_strchr(TOKENS, **s))
 		(*s)++;
 	return ('a');
 }
 
 int			tokenizer(
-	char **p_input, char *end, char **new_cmd, char **new_cmd_end)
+		char **p_input, char *end, char **new_cmd, char **new_cmd_end)
 {
 	char	*s;
 	int		ret;
