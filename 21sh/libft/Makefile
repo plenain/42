@@ -3,13 +3,12 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bjamin <bjamin@student.42.fr>              +#+  +:+       +#+         #
+#    By: plenain <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/24 12:39:51 by bjamin            #+#    #+#              #
-#    Updated: 2016/03/14 19:01:30 by bjamin           ###   ########.fr        #
+#    Created: 2019/09/26 16:30:35 by plenain           #+#    #+#              #
+#    Updated: 2019/09/26 16:30:45 by plenain          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 #Define the libft
 LIB				= libft.a
