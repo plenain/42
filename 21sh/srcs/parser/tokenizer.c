@@ -6,7 +6,7 @@
 /*   By: plenain <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 23:16:12 by plenain           #+#    #+#             */
-/*   Updated: 2019/09/09 18:45:52 by plenain          ###   ########.fr       */
+/*   Updated: 2019/11/02 11:21:43 by plenain          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	tokenizer_aggregators(char **s, int ret, char *end)
 		while (*s < end && !ft_strchr(WHITESPACES, **s) &&
 				!ft_strchr(TOKENS, **s))
 			(*s)++;
-		return ('a');
+	return ('a');
 	return (ret);
 }
 
